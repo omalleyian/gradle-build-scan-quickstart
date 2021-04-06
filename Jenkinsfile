@@ -4,4 +4,5 @@ pipeline {
       println "test"
       sh("gradle --version")
     }
+  }
 }
