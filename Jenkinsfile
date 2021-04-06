@@ -1,8 +1,14 @@
 pipeline {
+  agent any
+  
   stages {
     stage("Gradle Check") {
-      println "test"
-      sh("gradle --version")
+      steps {
+        script {
+          println "test"
+        }
+        sh("gradle --version")
+      }
     }
   }
 }
