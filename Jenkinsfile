@@ -1,14 +1,17 @@
 pipeline {
-  agent any
-  
-  stages {
-    stage("Gradle Check") {
-      steps {
-        script {
-          println "test"
+    agent { label 'gradle-latest' }
+
+    stages {
+        stage('Gradle Check') {
+            steps {
+                sh('gradle --version')
+            }
         }
-        sh("gradle --version")
-      }
+
+        stage('Dependency Check') {
+            steps {
+                sh('gradle useLatestVersions && gradle useLatestVersionsCheck')
+            }
+        }
     }
-  }
 }
