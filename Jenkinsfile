@@ -20,7 +20,7 @@ pipeline {
                         String branchUUID = UUID.randomUUID().toString()
                         println branchUUID
                         String branchName = 'update_dependencies'
-                        sh("git branch -b $branchName && \
+                        sh("git checkout -b $branchName && \
                             git add build.gradle && \
                             git commit -m 'Update $updateCount Dependencies' -m '$updateOutput' && \
                             git push -f")
